@@ -1,0 +1,29 @@
+{
+  "welcome": "Bienvenue",
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "contact": "Contact",
+    "gallery": "Galerie"
+  },
+  "actions": {
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier"
+  },
+  "messages": {
+    "loading": "Chargement en cours...",
+    "error": "Une erreur est survenue",
+    "success": "Opération réussie"
+  },
+  "home": {
+    "title": "Démonstration du Lazy Loading avec React",
+    "subtitle": "Comment fonctionne le Lazy Loading ?",
+    "description": "Le lazy loading permet de charger les composants uniquement lorsqu'ils sont nécessaires, améliorant ainsi les performances de l'application.",
+    "example": {
+      "title": "Exemple de lazy loading",
+      "usage": "Utilisation avec Suspense"
+    },
+  }
+} 

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Navigation from '../../components/Navigation'
+import { useTranslation } from 'react-i18next'
 
 // Styled Components
 const AboutContainer = styled.div`
@@ -50,34 +51,28 @@ const BenefitsList = styled.ul`
  * @returns {JSX.Element} Le composant About
  */
 const About = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Navigation />
       <AboutContainer>
-        <Title>À propos du Lazy Loading</Title>
+        <Title>{t('about.title')}</Title>
         <Content>
-          <h2>Pourquoi utiliser le Lazy Loading ?</h2>
-          <p>
-            Le lazy loading est une technique d'optimisation qui consiste à retarder
-            le chargement de certaines parties de votre application jusqu'à ce qu'elles
-            soient réellement nécessaires.
-          </p>
+          <h2>{t('about.subtitle')}</h2>
+          <p>{t('about.description')}</p>
 
           <PerformanceSection>
-            <h3>Avantages pour les performances :</h3>
+            <h3>{t('about.performance.title')}</h3>
             <BenefitsList>
-              <li>Réduction du temps de chargement initial</li>
-              <li>Optimisation de l'utilisation des ressources</li>
-              <li>Amélioration de l'expérience utilisateur</li>
-              <li>Réduction de la consommation de données</li>
+              <li>{t('about.performance.benefits.initial')}</li>
+              <li>{t('about.performance.benefits.resources')}</li>
+              <li>{t('about.performance.benefits.experience')}</li>
+              <li>{t('about.performance.benefits.data')}</li>
             </BenefitsList>
           </PerformanceSection>
 
-          <p>
-            Cette page elle-même est chargée de manière lazy ! Vous pouvez vérifier
-            dans l'onglet Network des outils de développement que le code de cette
-            page n'est chargé que lorsque vous naviguez vers elle.
-          </p>
+          <p>{t('about.verification')}</p>
         </Content>
       </AboutContainer>
     </>

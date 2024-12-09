@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import Navigation from '../../components/Navigation'
-
-
+import { useTranslation } from 'react-i18next'
 
 /**
  * Page Contact
@@ -10,6 +9,7 @@ import Navigation from '../../components/Navigation'
  * @returns {JSX.Element} Le composant Contact
  */
 const Contact = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -39,55 +39,55 @@ const Contact = () => {
     <>
       <Navigation />
       <ContactContainer>
-        <Title>Contactez-nous</Title>
+        <Title>{t('contact.title')}</Title>
         <FormContainer>
           <Form onSubmit={handleSubmit}>
             <FormGroup>
-              <Label htmlFor="name">Nom</Label>
+              <Label htmlFor="name">{t('contact.form.name.label')}</Label>
               <Input
                 type="text"
                 id="name"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Votre nom"
+                placeholder={t('contact.form.name.placeholder')}
                 required
               />
             </FormGroup>
 
             <FormGroup>
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">{t('contact.form.email.label')}</Label>
               <Input
                 type="email"
                 id="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="votre@email.com"
+                placeholder={t('contact.form.email.placeholder')}
                 required
               />
             </FormGroup>
 
             <FormGroup>
-              <Label htmlFor="message">Message</Label>
+              <Label htmlFor="message">{t('contact.form.message.label')}</Label>
               <TextArea
                 id="message"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Votre message..."
+                placeholder={t('contact.form.message.placeholder')}
                 required
               />
             </FormGroup>
 
             <Button type="submit" disabled={!isFormValid}>
-              Envoyer
+              {t('contact.form.submit')}
             </Button>
           </Form>
 
           {isSubmitted && (
             <SuccessMessage>
-              Merci pour votre message ! Nous vous répondrons bientôt.
+              {t('contact.form.success')}
             </SuccessMessage>
           )}
         </FormContainer>
@@ -108,7 +108,6 @@ const Title = styled.h1`
 `
 
 const FormContainer = styled.div`
-  /* max-width: 600px; */
   margin: 0 auto;
   padding: 2rem;
   background-color: white;
@@ -189,6 +188,5 @@ const SuccessMessage = styled.div`
   margin-top: 1rem;
   text-align: center;
 `
-
 
 export default Contact 

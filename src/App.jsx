@@ -1,15 +1,16 @@
 import { Suspense, lazy } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import styled from 'styled-components'
-// import ImageGallery from './screens/ImageGallery'
+import { useTranslation } from 'react-i18next'
+import LanguageSelector from './components/LanguageSelector'
+
 // Composants statiques
 import Home from './screens/Home'
 
 // Composants lazy loadés
 const About = lazy(() => import('./screens/About'))
 const Contact = lazy(() => import('./screens/Contact'))
-const ImageGallery = lazy(() => import('./screens/ImageGallery') )
-
+const ImageGallery = lazy(() => import('./screens/ImageGallery'))
 
 /**
  * Composant principal de l'application
@@ -17,16 +18,17 @@ const ImageGallery = lazy(() => import('./screens/ImageGallery') )
  * @returns {JSX.Element} Le composant App
  */
 function App() {
+  const { t } = useTranslation();
+
   return (
     <BrowserRouter>
       <AppWrapper>
-        {/* 
-          Suspense affiche un fallback pendant le chargement des composants
-          C'est ici que le lazy loading entre en jeu
-        */}
+        <Header>
+          <LanguageSelector />
+        </Header>
         <Suspense fallback={
           <LoadingWrapper>
-            Chargement en cours...
+            {t('messages.loading')}
           </LoadingWrapper>
         }>
           <Routes>
@@ -41,8 +43,15 @@ function App() {
   )
 }
 
-
 // Styled Components
+const Header = styled.header`
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+`
+
 const LoadingWrapper = styled.div`
   display: flex;
   justify-content: center;

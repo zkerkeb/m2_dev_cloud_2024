@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Navigation from '../../components/Navigation'
-
+import { useTranslation } from 'react-i18next'
 
 /**
  * Page d'accueil
@@ -8,31 +8,26 @@ import Navigation from '../../components/Navigation'
  * @returns {JSX.Element} Le composant Home
  */
 const Home = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Navigation />
       <HomeContainer>
-        <Title>Démonstration du Lazy Loading avec React</Title>
+        <Title>{t('home.title')}</Title>
         <Content>
-          <h2>Comment fonctionne le Lazy Loading ?</h2>
-          <p>
-            Le lazy loading permet de charger les composants uniquement lorsqu'ils sont nécessaires,
-            améliorant ainsi les performances de l'application.
-          </p>
+          <h2>{t('home.subtitle')}</h2>
+          <p>{t('home.description')}</p>
           <CodeExample>
-            {`// Exemple de lazy loading
+            {`// ${t('home.example.title')}
 const MonComposant = lazy(() => import('./MonComposant'))
 
-// Utilisation avec Suspense
-<Suspense fallback={<div>Chargement...</div>}>
+// ${t('home.example.usage')}
+<Suspense fallback={<div>${t('messages.loading')}</div>}>
   <MonComposant />
 </Suspense>`}
           </CodeExample>
-          <p>
-            Dans cette application, toutes les pages sont chargées de manière lazy.
-            Vous pouvez observer le chargement en ouvrant les outils de développement (F12)
-            et en naviguant entre les pages.
-          </p>
+          <p>{t('home.explanation')}</p>
         </Content>
       </HomeContainer>
     </>
@@ -51,7 +46,6 @@ const Title = styled.h1`
 `
 
 const Content = styled.div`
-  /* max-width: 800px; */
   margin: 0 auto;
   padding: 2rem;
   background-color: #333333;
@@ -65,6 +59,5 @@ const CodeExample = styled.pre`
   border-radius: 4px;
   overflow-x: auto;
 `
-
 
 export default Home 

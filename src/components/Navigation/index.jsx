@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
+import { useTranslation } from 'react-i18next'
 
 // Styled Components
 const Nav = styled.nav`
@@ -42,20 +43,22 @@ const StyledNavLink = styled(NavLink)`
  * @returns {JSX.Element} Le composant Navigation
  */
 const Navigation = () => {
+  const { t } = useTranslation();
+
   return (
     <Nav>
       <NavList>
         <li>
-          <StyledNavLink to="/">Accueil</StyledNavLink>
+          <StyledNavLink to="/">{t('navigation.home')}</StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/about">À propos</StyledNavLink>
+          <StyledNavLink to="/about">{t('navigation.about')}</StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/contact">Contact</StyledNavLink>
+          <StyledNavLink to="/contact">{t('navigation.contact')}</StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/gallery">Galerie</StyledNavLink>
+          <StyledNavLink to="/gallery">{t('navigation.gallery')}</StyledNavLink>
         </li>
       </NavList>
     </Nav>

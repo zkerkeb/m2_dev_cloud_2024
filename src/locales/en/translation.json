@@ -1,0 +1,81 @@
+{
+  "welcome": "Welcome",
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "gallery": "Gallery"
+  },
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit"
+  },
+  "messages": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Operation successful"
+  },
+  "home": {
+    "title": "React Lazy Loading Demonstration",
+    "subtitle": "How does Lazy Loading work?",
+    "description": "Lazy loading allows components to be loaded only when they are needed, thus improving application performance.",
+    "example": {
+      "title": "Lazy loading example",
+      "usage": "Usage with Suspense"
+    },
+    "explanation": "In this application, all pages are loaded lazily. You can observe the loading by opening the developer tools (F12) and navigating between pages."
+  },
+  "about": {
+    "title": "About Lazy Loading",
+    "subtitle": "Why use Lazy Loading?",
+    "description": "Lazy loading is an optimization technique that consists of delaying the loading of certain parts of your application until they are actually needed.",
+    "performance": {
+      "title": "Performance Benefits:",
+      "benefits": {
+        "initial": "Reduced initial loading time",
+        "resources": "Optimized resource usage",
+        "experience": "Improved user experience",
+        "data": "Reduced data consumption"
+      }
+    },
+    "verification": "This page itself is loaded lazily! You can verify in the Network tab of the developer tools that this page's code is only loaded when you navigate to it."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "form": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Your name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "your@email.com"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Your message..."
+      },
+      "submit": "Send",
+      "success": "Thank you for your message! We will get back to you soon."
+    }
+  },
+  "gallery": {
+    "title": "4K Image Gallery",
+    "images": {
+      "nature": "4K Nature",
+      "mountain": "Mountain Landscape",
+      "forest": "Misty Forest",
+      "lake": "Mountain Lake",
+      "aurora": "Northern Lights",
+      "waterfall": "Waterfall",
+      "valley": "Green Valley",
+      "sunset": "Sunset",
+      "ocean": "Ocean",
+      "desert": "Desert",
+      "prairie": "Prairie",
+      "snowy": "Snowy Mountains"
+    }
+  }
+} 

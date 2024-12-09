@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Navigation from '../../components/Navigation';
 import LazyImage from '../../components/LazyImage';
+import { useTranslation } from 'react-i18next';
 
 const GalleryContainer = styled.div`
   padding: 2rem;
@@ -36,74 +37,76 @@ const Title = styled.h1`
 `;
 
 const ImageGallery = () => {
-  // Array d'images 4K (remplacez les URLs par vos propres images)
+  const { t } = useTranslation();
+
+  // Array d'images 4K
   const images = [
     {
       id: 1,
-      src: 'https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?q=80&w=3840',
-      alt: 'Nature 4K'
+      src: 'https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?q=80&w=800',
+      alt: t('gallery.images.nature')
     },
     {
       id: 2,
-      src: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=3840',
-      alt: 'Paysage montagneux'
+      src: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=800',
+      alt: t('gallery.images.mountain')
     },
     {
       id: 3,
-      src: 'https://images.unsplash.com/photo-1497449493050-aad1e7cad165?q=80&w=3840',
-      alt: 'Forêt brumeuse'
+      src: 'https://images.unsplash.com/photo-1497449493050-aad1e7cad165?q=80&w=800',
+      alt: t('gallery.images.forest')
     },
     {
       id: 4,
-      src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=3840',
-      alt: 'Lac de montagne'
+      src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=800',
+      alt: t('gallery.images.lake')
     },
     {
       id: 5,
-      src: 'https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=3840',
-      alt: 'Aurore boréale'
+      src: 'https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=800',
+      alt: t('gallery.images.aurora')
     },
     {
       id: 6,
-      src: 'https://images.unsplash.com/photo-1505144808419-1957a94ca61e?q=80&w=3840',
-      alt: 'Cascade'
+      src: 'https://images.unsplash.com/photo-1505144808419-1957a94ca61e?q=80&w=800',
+      alt: t('gallery.images.waterfall')
     },
     {
       id: 7,
-      src: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=3840',
-      alt: 'Vallée verdoyante'
+      src: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=800',
+      alt: t('gallery.images.valley')
     },
     {
       id: 8,
-      src: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=3840',
-      alt: 'Coucher de soleil'
+      src: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=800',
+      alt: t('gallery.images.sunset')
     },
     {
       id: 9,
-      src: 'https://images.unsplash.com/photo-1439853949127-fa647821eba0?q=80&w=3840',
-      alt: 'Océan'
+      src: 'https://images.unsplash.com/photo-1439853949127-fa647821eba0?q=80&w=800',
+      alt: t('gallery.images.ocean')
     },
     {
       id: 10,
-      src: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?q=80&w=3840',
-      alt: 'Désert'
+      src: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?q=80&w=800',
+      alt: t('gallery.images.desert')
     },
     {
       id: 11,
-      src: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?q=80&w=3840',
-      alt: 'Prairie'
+      src: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?q=80&w=800',
+      alt: t('gallery.images.prairie')
     },
     {
       id: 12,
-      src: 'https://images.unsplash.com/photo-1542224566-6e85f2e6772f?q=80&w=3840',
-      alt: 'Montagnes enneigées'
+      src: 'https://images.unsplash.com/photo-1542224566-6e85f2e6772f?q=80&w=800',
+      alt: t('gallery.images.snowy')
     }
   ];
 
   return (
     <GalleryContainer>
       <Navigation />
-      <Title>Galerie d'Images 4K</Title>
+      <Title>{t('gallery.title')}</Title>
       <ImageGrid>
         {images.map((image) => (
           <ImageWrapper key={image.id}>
